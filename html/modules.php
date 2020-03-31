@@ -64,12 +64,14 @@ function modChrome_navbar($module, &$params, &$attribs)
     if ($module->content) {
 
         if ($module->module === 'mod_menu') {
-            $sfx = $config->getOffcanvasToggle();
+            $sfx = $config->getOffcanvasToggle();			
 
             $moduleTag = 'nav';
 
-            if ($masterParams->offtoggle) {
-                $moduleClass .= ' uk-visible' . $sfx;
+            $moduleClass .= ' uk-visible' . $sfx;
+				
+            if ($masterParams->offtoggle !== '1') {
+					
                 echo '<a class="uk-navbar-toggle uk-hidden' . $sfx . '" href="#" data-uk-navbar-toggle-icon data-uk-toggle="target:#' . $masterParams->offtoggle . '"></a>';
             }
         } else {
